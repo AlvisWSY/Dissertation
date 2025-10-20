@@ -41,7 +41,15 @@ class SimulationConfig:
                     if '=' in line:
                         key, value = line.split('=', 1)
                         config[key.strip()] = value.strip()
-        
+        # 自动定位参数文件目录（paramFiles），不拼接文件名
+        # 优先使用 PaySim.properties 所在目录下的 paramFiles
+        param_dir = os.path.join(os.path.dirname(filepath), 'paramFiles')
+        if not os.path.isdir(param_dir):
+            # 如果不存在则回退到配置文件指定路径或默认
+            param_dir = config.get('param_dir', config.get('transactionsTypes', './paramFiles'))
+            # 如果还是文件名，则取其父目录
+            if os.path.isfile(param_dir):
+                param_dir = os.path.dirname(param_dir)
         return cls(
             seed=None if config.get('seed', 'time') == 'time' else int(config.get('seed', 0)),
             nb_steps=int(config.get('nbSteps', 720)),
@@ -52,7 +60,7 @@ class SimulationConfig:
             nb_banks=int(config.get('nbBanks', 5)),
             fraud_probability=float(config.get('fraudProbability', 0.001)),
             transfer_limit=float(config.get('transferLimit', 20000000000)),
-            param_dir=config.get('transactionsTypes', './paramFiles').replace('./paramFiles/transactionsTypes.csv', './paramFiles'),
+            param_dir=param_dir,
             output_path=config.get('outputPath', './outputs'),
             save_to_db=bool(int(config.get('saveToDB', 0))),
         )

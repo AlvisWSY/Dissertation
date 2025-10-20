@@ -1,7 +1,0 @@
-seed=42
-nbSteps=10
-multiplier=1.0
-nbClients=50
-nbFraudsters=5
-nbMerchants=10
-nbBanks=2
