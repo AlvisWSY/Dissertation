@@ -1,0 +1,36 @@
+{
+  "time_features": {
+    "timestamp": "datetime64[ns]",
+    "hour_of_day": "int64",
+    "day_of_week": "int64"
+  },
+  "transaction_features": {
+    "amount": "float64",
+    "log_amount": "float64"
+  },
+  "user_features": {
+    "user_id": "string",
+    "user_age": "int64",
+    "account_age_days": "int64",
+    "user_gender": "string",
+    "user_location": "string"
+  },
+  "device_channel_features": {
+    "channel": "string",
+    "browser": "string",
+    "device_type": "string",
+    "payment_method": "string",
+    "ip_address": "string"
+  },
+  "behavioral_features": {
+    "product_category": "string",
+    "quantity": "int64",
+    "unit_price": "float64",
+    "address_match": "int64",
+    "seller_id": "string",
+    "brand": "string"
+  },
+  "label": {
+    "is_fraud": "int64"
+  }
+}

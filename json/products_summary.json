@@ -1,0 +1,331 @@
+{
+    "dataset_name": "counterfeit_products",
+    "n_rows": 5000,
+    "n_cols": 27,
+    "columns": {
+        "product_id": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 5000,
+            "sample_values": [
+                "dcb12716",
+                "d1f8b777",
+                "9989f13a",
+                "4e008120",
+                "933b65ba"
+            ]
+        },
+        "seller_id": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 3828,
+            "sample_values": [
+                "seller_5426",
+                "seller_4385",
+                "seller_2528",
+                "seller_8099",
+                "seller_7873"
+            ]
+        },
+        "category": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 6,
+            "sample_values": [
+                "Electronics",
+                "Luxury Goods",
+                "Fashion",
+                "Electronics",
+                "Luxury Goods"
+            ]
+        },
+        "brand": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 36,
+            "sample_values": [
+                "DigitalPro",
+                "TechCrop",
+                "FashionForward",
+                "CircuitMaster",
+                "PremiumCraft"
+            ]
+        },
+        "price": {
+            "dtype": "float64",
+            "n_missing": 0,
+            "n_unique": 4717,
+            "sample_values": [
+                "218.54",
+                "20.72",
+                "18.87",
+                "79.27",
+                "225.98"
+            ]
+        },
+        "seller_rating": {
+            "dtype": "float64",
+            "n_missing": 0,
+            "n_unique": 41,
+            "sample_values": [
+                "4.9",
+                "3.2",
+                "3.9",
+                "4.9",
+                "3.8"
+            ]
+        },
+        "seller_reviews": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 3059,
+            "sample_values": [
+                "5291",
+                "29",
+                "14",
+                "8533",
+                "7655"
+            ]
+        },
+        "product_images": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 9,
+            "sample_values": [
+                "7",
+                "2",
+                "2",
+                "4",
+                "4"
+            ]
+        },
+        "description_length": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 945,
+            "sample_values": [
+                "220",
+                "179",
+                "100",
+                "976",
+                "589"
+            ]
+        },
+        "shipping_time_days": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 44,
+            "sample_values": [
+                "7",
+                "41",
+                "25",
+                "10",
+                "6"
+            ]
+        },
+        "spelling_errors": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 5,
+            "sample_values": [
+                "1",
+                "1",
+                "3",
+                "0",
+                "1"
+            ]
+        },
+        "domain_age_days": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 2542,
+            "sample_values": [
+                "831",
+                "161",
+                "244",
+                "3310",
+                "1865"
+            ]
+        },
+        "contact_info_complete": {
+            "dtype": "bool",
+            "n_missing": 0,
+            "n_unique": 2,
+            "sample_values": [
+                "True",
+                "False",
+                "False",
+                "True",
+                "True"
+            ]
+        },
+        "return_policy_clear": {
+            "dtype": "bool",
+            "n_missing": 0,
+            "n_unique": 2,
+            "sample_values": [
+                "True",
+                "False",
+                "True",
+                "False",
+                "True"
+            ]
+        },
+        "payment_methods_count": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 5,
+            "sample_values": [
+                "5",
+                "2",
+                "2",
+                "5",
+                "5"
+            ]
+        },
+        "listing_date": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 731,
+            "sample_values": [
+                "2024-07-28",
+                "2025-05-26",
+                "2025-03-29",
+                "2023-10-09",
+                "2023-07-27"
+            ]
+        },
+        "seller_country": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 10,
+            "sample_values": [
+                "CN",
+                "JP",
+                "FR",
+                "CA",
+                "GB"
+            ]
+        },
+        "shipping_origin": {
+            "dtype": "object",
+            "n_missing": 0,
+            "n_unique": 10,
+            "sample_values": [
+                "JP",
+                "CA",
+                "CN",
+                "CN",
+                "DE"
+            ]
+        },
+        "views": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 3135,
+            "sample_values": [
+                "3454",
+                "4127",
+                "3212",
+                "1488",
+                "171"
+            ]
+        },
+        "purchases": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 451,
+            "sample_values": [
+                "99",
+                "252",
+                "306",
+                "7",
+                "9"
+            ]
+        },
+        "wishlist_adds": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 100,
+            "sample_values": [
+                "23",
+                "88",
+                "6",
+                "46",
+                "5"
+            ]
+        },
+        "certification_badges": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 5,
+            "sample_values": [
+                "2",
+                "0",
+                "4",
+                "2",
+                "3"
+            ]
+        },
+        "warranty_months": {
+            "dtype": "int64",
+            "n_missing": 0,
+            "n_unique": 24,
+            "sample_values": [
+                "21",
+                "9",
+                "8",
+                "13",
+                "13"
+            ]
+        },
+        "bulk_orders": {
+            "dtype": "bool",
+            "n_missing": 0,
+            "n_unique": 2,
+            "sample_values": [
+                "True",
+                "False",
+                "True",
+                "False",
+                "False"
+            ]
+        },
+        "unusual_payment_patterns": {
+            "dtype": "bool",
+            "n_missing": 0,
+            "n_unique": 2,
+            "sample_values": [
+                "False",
+                "False",
+                "True",
+                "False",
+                "False"
+            ]
+        },
+        "ip_location_mismatch": {
+            "dtype": "bool",
+            "n_missing": 0,
+            "n_unique": 2,
+            "sample_values": [
+                "True",
+                "False",
+                "False",
+                "False",
+                "False"
+            ]
+        },
+        "is_counterfeit": {
+            "dtype": "bool",
+            "n_missing": 0,
+            "n_unique": 2,
+            "sample_values": [
+                "False",
+                "True",
+                "True",
+                "False",
+                "False"
+            ]
+        }
+    }
+}

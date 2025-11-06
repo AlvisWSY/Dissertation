@@ -1,0 +1,283 @@
+{
+  "basic_info": {
+    "n_rows": 1296675,
+    "n_cols": 23,
+    "columns": [
+      "Unnamed: 0",
+      "trans_date_trans_time",
+      "cc_num",
+      "merchant",
+      "category",
+      "amt",
+      "first",
+      "last",
+      "gender",
+      "street",
+      "city",
+      "state",
+      "zip",
+      "lat",
+      "long",
+      "city_pop",
+      "job",
+      "dob",
+      "trans_num",
+      "unix_time",
+      "merch_lat",
+      "merch_long",
+      "is_fraud"
+    ]
+  },
+  "column_stats": {
+    "Unnamed: 0": {
+      "dtype": "int64",
+      "n_missing": 0,
+      "n_unique": 1296675,
+      "min": 0.0,
+      "max": 1296674.0,
+      "mean": 648337.0,
+      "std": 374317.9744882685
+    },
+    "trans_date_trans_time": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 1274791,
+      "top_values": {
+        "2019-04-22 16:02:01": 4,
+        "2020-06-02 12:47:07": 4,
+        "2020-06-01 01:37:47": 4,
+        "2020-05-11 14:27:33": 3,
+        "2020-05-29 18:21:24": 3
+      }
+    },
+    "cc_num": {
+      "dtype": "int64",
+      "n_missing": 0,
+      "n_unique": 983,
+      "min": 60416207185.0,
+      "max": 4.992346398065154e+18,
+      "mean": 4.1719204207972666e+17,
+      "std": 1.3088064470002404e+18
+    },
+    "merchant": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 693,
+      "top_values": {
+        "fraud_Kilback LLC": 4403,
+        "fraud_Cormier LLC": 3649,
+        "fraud_Schumm PLC": 3634,
+        "fraud_Kuhn LLC": 3510,
+        "fraud_Boyer PLC": 3493
+      }
+    },
+    "category": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 14,
+      "top_values": {
+        "gas_transport": 131659,
+        "grocery_pos": 123638,
+        "home": 123115,
+        "shopping_pos": 116672,
+        "kids_pets": 113035
+      }
+    },
+    "amt": {
+      "dtype": "float64",
+      "n_missing": 0,
+      "n_unique": 52928,
+      "min": 1.0,
+      "max": 28948.9,
+      "mean": 70.35103545607033,
+      "std": 160.31603857152774
+    },
+    "first": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 352,
+      "top_values": {
+        "Christopher": 26669,
+        "Robert": 21667,
+        "Jessica": 20581,
+        "James": 20039,
+        "Michael": 20009
+      }
+    },
+    "last": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 481,
+      "top_values": {
+        "Smith": 28794,
+        "Williams": 23605,
+        "Davis": 21910,
+        "Johnson": 20034,
+        "Rodriguez": 17394
+      }
+    },
+    "gender": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 2,
+      "top_values": {
+        "F": 709863,
+        "M": 586812
+      }
+    },
+    "street": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 983,
+      "top_values": {
+        "864 Reynolds Plains": 3123,
+        "0069 Robin Brooks Apt. 695": 3123,
+        "8172 Robertson Parkways Suite 072": 3119,
+        "4664 Sanchez Common Suite 930": 3117,
+        "8030 Beck Motorway": 3113
+      }
+    },
+    "city": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 894,
+      "top_values": {
+        "Birmingham": 5617,
+        "San Antonio": 5130,
+        "Utica": 5105,
+        "Phoenix": 5075,
+        "Meridian": 5060
+      }
+    },
+    "state": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 51,
+      "top_values": {
+        "TX": 94876,
+        "NY": 83501,
+        "PA": 79847,
+        "CA": 56360,
+        "OH": 46480
+      }
+    },
+    "zip": {
+      "dtype": "int64",
+      "n_missing": 0,
+      "n_unique": 970,
+      "min": 1257.0,
+      "max": 99783.0,
+      "mean": 48800.67109722945,
+      "std": 26893.2224764859
+    },
+    "lat": {
+      "dtype": "float64",
+      "n_missing": 0,
+      "n_unique": 968,
+      "min": 20.0271,
+      "max": 66.6933,
+      "mean": 38.53762161489965,
+      "std": 5.075808438803932
+    },
+    "long": {
+      "dtype": "float64",
+      "n_missing": 0,
+      "n_unique": 969,
+      "min": -165.6723,
+      "max": -67.9503,
+      "mean": -90.22633537864147,
+      "std": 13.759076946486312
+    },
+    "city_pop": {
+      "dtype": "int64",
+      "n_missing": 0,
+      "n_unique": 879,
+      "min": 23.0,
+      "max": 2906700.0,
+      "mean": 88824.44056297839,
+      "std": 301956.360688751
+    },
+    "job": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 494,
+      "top_values": {
+        "Film/video editor": 9779,
+        "Exhibition designer": 9199,
+        "Naval architect": 8684,
+        "Surveyor, land/geomatics": 8680,
+        "Materials engineer": 8270
+      }
+    },
+    "dob": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 968,
+      "top_values": {
+        "1977-03-23": 5636,
+        "1981-08-29": 4636,
+        "1988-09-15": 4623,
+        "1955-05-06": 3661,
+        "1983-07-25": 3123
+      }
+    },
+    "trans_num": {
+      "dtype": "object",
+      "n_missing": 0,
+      "n_unique": 1296675,
+      "top_values": {
+        "8f7c8e4ab7f25875d753b422917c98c9": 1,
+        "0b242abb623afc578575680df30655b9": 1,
+        "1f76529f8574734946361c461b024d99": 1,
+        "710a88b3b93a13cab79aae87237a3ddf": 1,
+        "b8a8575d70f33234cb53bb22b50a0fd9": 1
+      }
+    },
+    "unix_time": {
+      "dtype": "int64",
+      "n_missing": 0,
+      "n_unique": 1274823,
+      "min": 1325376018.0,
+      "max": 1371816817.0,
+      "mean": 1349243636.7261226,
+      "std": 12841278.423359346
+    },
+    "merch_lat": {
+      "dtype": "float64",
+      "n_missing": 0,
+      "n_unique": 1247805,
+      "min": 19.027785,
+      "max": 67.510267,
+      "mean": 38.53733804469971,
+      "std": 5.109788369679177
+    },
+    "merch_long": {
+      "dtype": "float64",
+      "n_missing": 0,
+      "n_unique": 1275745,
+      "min": -166.671242,
+      "max": -66.950902,
+      "mean": -90.22646479897277,
+      "std": 13.77109056479242
+    },
+    "is_fraud": {
+      "dtype": "int64",
+      "n_missing": 0,
+      "n_unique": 2,
+      "min": 0.0,
+      "max": 1.0,
+      "mean": 0.005788651743883394,
+      "std": 0.07586268973125164
+    }
+  },
+  "amount_range": {
+    "1%": 1.26,
+    "99%": 545.9926000000002
+  },
+  "location_bounds": {
+    "lat_min": 20.0271,
+    "lat_max": 66.6933,
+    "long_min": -165.6723,
+    "long_max": -67.9503
+  }
+}
