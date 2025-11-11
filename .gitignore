@@ -3,3 +3,9 @@ data/
 PaySim/
 *.csv
 rawdata/
+*.ipynb_checkpoints
+__pycache__/
+*.pyc
+.vscode/
+results/visualizations/
+demo/

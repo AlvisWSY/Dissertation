@@ -3,7 +3,7 @@
     "train": [
       {
         "file_name": "train.csv",
-        "n_rows": 100000,
+        "n_rows": 472432,
         "n_cols": 81,
         "columns": [
           "timestamp",
@@ -259,7 +259,7 @@
     "test": [
       {
         "file_name": "test.csv",
-        "n_rows": 100000,
+        "n_rows": 118108,
         "n_cols": 81,
         "columns": [
           "timestamp",
@@ -517,7 +517,7 @@
     "train": [
       {
         "file_name": "col14_train.csv",
-        "n_rows": 100000,
+        "n_rows": 237597,
         "n_cols": 15,
         "columns": [
           "timestamp",
@@ -647,7 +647,7 @@
     "train": [
       {
         "file_name": "train_clean.csv",
-        "n_rows": 100000,
+        "n_rows": 1472694,
         "n_cols": 14,
         "columns": [
           "timestamp",
@@ -1061,7 +1061,7 @@
     "train": [
       {
         "file_name": "train.csv",
-        "n_rows": 100000,
+        "n_rows": 227845,
         "n_cols": 34,
         "columns": [
           "timestamp",
@@ -1305,7 +1305,7 @@
     "train": [
       {
         "file_name": "train.csv",
-        "n_rows": 100000,
+        "n_rows": 1296675,
         "n_cols": 13,
         "columns": [
           "timestamp",
@@ -1363,7 +1363,7 @@
     "test": [
       {
         "file_name": "test.csv",
-        "n_rows": 100000,
+        "n_rows": 555719,
         "n_cols": 13,
         "columns": [
           "timestamp",
