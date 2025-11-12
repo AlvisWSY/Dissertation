@@ -843,3 +843,249 @@
 2025-11-11 22:51:53 | INFO     | Applying imbalance strategy: ADASYN
 2025-11-11 22:51:53 | INFO     | ADASYN applied: 227845 -> 454905 samples
 2025-11-11 22:51:53 | INFO     | [TIMER START] lr_train
+2025-11-11 22:55:11 | INFO     | [TIMER END] lr_train: 197.98s
+2025-11-11 22:55:11 | INFO     | [TIMER START] lr_inference
+2025-11-11 22:55:11 | INFO     | [TIMER END] lr_inference: 0.01s
+2025-11-11 22:55:11 | INFO     | Model: Logistic Regression - Strategy: adasyn
+2025-11-11 22:55:11 | INFO     |   Accuracy: 0.9185 
+2025-11-11 22:55:11 | INFO     |   Precision: 0.0193 
+2025-11-11 22:55:11 | INFO     |   Recall: 0.9286 
+2025-11-11 22:55:11 | INFO     |   F1-Score: 0.0377 
+2025-11-11 22:55:11 | INFO     |   ROC-AUC: 0.9755 
+2025-11-11 22:55:11 | INFO     |   Training Time: 197.98s
+2025-11-11 22:55:11 | INFO     |   Inference Time: 0.0116s
+2025-11-11 22:55:12 | INFO     | 
+>>> Random Forest [ADASYN]
+2025-11-11 22:55:12 | INFO     | Applying imbalance strategy: ADASYN
+2025-11-11 22:55:12 | INFO     | ADASYN applied: 227845 -> 454905 samples
+2025-11-11 22:55:12 | INFO     | [TIMER START] rf_train
+2025-11-11 22:55:20 | INFO     | [TIMER END] rf_train: 8.68s
+2025-11-11 22:55:20 | INFO     | [TIMER START] rf_inference
+2025-11-11 22:55:21 | INFO     | [TIMER END] rf_inference: 0.12s
+2025-11-11 22:55:21 | INFO     | Model: Random Forest - Strategy: adasyn
+2025-11-11 22:55:21 | INFO     |   Accuracy: 0.9976 
+2025-11-11 22:55:21 | INFO     |   Precision: 0.4050 
+2025-11-11 22:55:21 | INFO     |   Recall: 0.8265 
+2025-11-11 22:55:21 | INFO     |   F1-Score: 0.5436 
+2025-11-11 22:55:21 | INFO     |   ROC-AUC: 0.9756 
+2025-11-11 22:55:21 | INFO     |   Training Time: 8.68s
+2025-11-11 22:55:21 | INFO     |   Inference Time: 0.1177s
+2025-11-11 22:55:21 | INFO     | 
+>>> XGBoost [ADASYN]
+2025-11-11 22:55:21 | INFO     | Applying imbalance strategy: ADASYN
+2025-11-11 22:55:21 | INFO     | ADASYN applied: 227845 -> 454905 samples
+2025-11-11 22:55:21 | INFO     | [TIMER START] xgb_train
+2025-11-11 22:55:22 | INFO     | [TIMER END] xgb_train: 0.68s
+2025-11-11 22:55:22 | INFO     | [TIMER START] xgb_inference
+2025-11-11 22:55:22 | INFO     | [TIMER END] xgb_inference: 0.02s
+2025-11-11 22:55:22 | INFO     | Model: XGBoost - Strategy: adasyn
+2025-11-11 22:55:22 | INFO     |   Accuracy: 0.9985 
+2025-11-11 22:55:22 | INFO     |   Precision: 0.5312 
+2025-11-11 22:55:22 | INFO     |   Recall: 0.8673 
+2025-11-11 22:55:22 | INFO     |   F1-Score: 0.6589 
+2025-11-11 22:55:22 | INFO     |   ROC-AUC: 0.9823 
+2025-11-11 22:55:22 | INFO     |   Training Time: 0.68s
+2025-11-11 22:55:22 | INFO     |   Inference Time: 0.0192s
+2025-11-11 22:55:22 | INFO     | 
+>>> LightGBM [ADASYN]
+2025-11-11 22:55:22 | INFO     | Applying imbalance strategy: ADASYN
+2025-11-11 22:55:22 | INFO     | ADASYN applied: 227845 -> 454905 samples
+2025-11-11 22:55:22 | INFO     | [TIMER START] lgb_train
+2025-11-11 22:55:23 | INFO     | [TIMER END] lgb_train: 1.06s
+2025-11-11 22:55:23 | INFO     | [TIMER START] lgb_inference
+2025-11-11 22:55:23 | INFO     | [TIMER END] lgb_inference: 0.02s
+2025-11-11 22:55:23 | INFO     | Model: LightGBM - Strategy: adasyn
+2025-11-11 22:55:23 | INFO     |   Accuracy: 0.9980 
+2025-11-11 22:55:23 | INFO     |   Precision: 0.4602 
+2025-11-11 22:55:23 | INFO     |   Recall: 0.8265 
+2025-11-11 22:55:23 | INFO     |   F1-Score: 0.5912 
+2025-11-11 22:55:23 | INFO     |   ROC-AUC: 0.9818 
+2025-11-11 22:55:23 | INFO     |   Training Time: 1.06s
+2025-11-11 22:55:23 | INFO     |   Inference Time: 0.0216s
+2025-11-11 22:55:23 | INFO     | 
+>>> Multi-Layer Perceptron [ADASYN]
+2025-11-11 22:55:23 | INFO     | Applying imbalance strategy: ADASYN
+2025-11-11 22:55:23 | INFO     | ADASYN applied: 227845 -> 454905 samples
+2025-11-11 22:55:24 | INFO     | [TIMER START] mlp_train
+2025-11-11 22:55:24 | INFO     | Training MLP model...
+2025-11-11 22:55:24 | INFO     | Using 2 GPUs for training
+2025-11-11 22:55:51 | INFO     | Epoch 10/50 - Train Loss: 0.0047, Val Loss: 0.0014
+2025-11-11 22:56:23 | INFO     | Epoch 20/50 - Train Loss: 0.0032, Val Loss: 0.0013
+2025-11-11 22:56:53 | INFO     | Epoch 30/50 - Train Loss: 0.0030, Val Loss: 0.0009
+2025-11-11 22:57:23 | INFO     | Epoch 40/50 - Train Loss: 0.0016, Val Loss: 0.0007
+2025-11-11 22:57:54 | INFO     | Epoch 50/50 - Train Loss: 0.0011, Val Loss: 0.0006
+2025-11-11 22:57:54 | INFO     | [TIMER END] mlp_train: 150.56s
+2025-11-11 22:57:54 | INFO     | [TIMER START] mlp_inference
+2025-11-11 22:57:54 | INFO     | [TIMER END] mlp_inference: 0.01s
+2025-11-11 22:57:54 | INFO     | Model: MLP - Strategy: adasyn
+2025-11-11 22:57:54 | INFO     |   Accuracy: 0.9994 
+2025-11-11 22:57:54 | INFO     |   Precision: 0.7850 
+2025-11-11 22:57:54 | INFO     |   Recall: 0.8571 
+2025-11-11 22:57:54 | INFO     |   F1-Score: 0.8195 
+2025-11-11 22:57:54 | INFO     |   ROC-AUC: 0.9714 
+2025-11-11 22:57:54 | INFO     |   Training Time: 150.56s
+2025-11-11 22:57:54 | INFO     |   Inference Time: 0.0053s
+2025-11-11 22:57:54 | INFO     | 
+>>> K-Nearest Neighbors [ADASYN]
+2025-11-11 22:57:54 | INFO     | Large dataset (227,845 samples), sampling to 20,000
+2025-11-11 22:57:54 | INFO     | Original fraud rate: 0.1729% (394 fraud samples)
+2025-11-11 22:57:54 | INFO     | Sampled fraud rate: 0.1750% (35 fraud samples)
+2025-11-11 22:57:54 | INFO     | Applying imbalance strategy: ADASYN
+2025-11-11 22:57:54 | INFO     | ADASYN applied: 20000 -> 39926 samples
+2025-11-11 22:57:54 | INFO     | [TIMER START] knn_train
+2025-11-11 22:57:54 | INFO     | [TIMER END] knn_train: 0.00s
+2025-11-11 22:57:54 | INFO     | [TIMER START] knn_inference
+2025-11-11 22:57:56 | INFO     | [TIMER END] knn_inference: 1.69s
+2025-11-11 22:57:56 | INFO     | Model: KNN - Strategy: adasyn
+2025-11-11 22:57:56 | INFO     |   Accuracy: 0.9986 
+2025-11-11 22:57:56 | INFO     |   Precision: 0.5608 
+2025-11-11 22:57:56 | INFO     |   Recall: 0.8469 
+2025-11-11 22:57:56 | INFO     |   F1-Score: 0.6748 
+2025-11-11 22:57:56 | INFO     |   ROC-AUC: 0.9282 
+2025-11-11 22:57:56 | INFO     |   Training Time: 0.00s
+2025-11-11 22:57:56 | INFO     |   Inference Time: 1.6950s
+2025-11-11 22:57:56 | INFO     | 
+>>> PCA + SVM [ADASYN]
+2025-11-11 22:57:56 | INFO     | Large dataset (227,845 samples), sampling to 20,000
+2025-11-11 22:57:56 | INFO     | Original fraud rate: 0.1729% (394 fraud samples)
+2025-11-11 22:57:56 | INFO     | Sampled fraud rate: 0.1750% (35 fraud samples)
+2025-11-11 22:57:56 | INFO     | [TIMER START] pca_svm_train
+2025-11-11 22:57:56 | INFO     | PCA: 32 -> 28 dimensions
+2025-11-11 22:57:56 | INFO     | Applying imbalance strategy: ADASYN
+2025-11-11 22:57:56 | INFO     | ADASYN applied: 20000 -> 39926 samples
+2025-11-11 22:58:06 | INFO     | [TIMER END] pca_svm_train: 9.93s
+2025-11-11 22:58:06 | INFO     | [TIMER START] pca_svm_inference
+2025-11-11 22:58:11 | INFO     | [TIMER END] pca_svm_inference: 5.19s
+2025-11-11 22:58:12 | INFO     | Model: PCA+SVM - Strategy: adasyn
+2025-11-11 22:58:12 | INFO     |   Accuracy: 0.9944 
+2025-11-11 22:58:12 | INFO     |   Precision: 0.2183 
+2025-11-11 22:58:12 | INFO     |   Recall: 0.8776 
+2025-11-11 22:58:12 | INFO     |   F1-Score: 0.3496 
+2025-11-11 22:58:12 | INFO     |   ROC-AUC: 0.9476 
+2025-11-11 22:58:12 | INFO     |   Training Time: 9.93s
+2025-11-11 22:58:12 | INFO     |   Inference Time: 5.1868s
+2025-11-11 22:58:12 | INFO     | 
+--------------------------------------------------------------------------------
+2025-11-11 22:58:12 | INFO     | Unsupervised Models
+2025-11-11 22:58:12 | INFO     | --------------------------------------------------------------------------------
+2025-11-11 22:58:12 | INFO     | 
+>>> Isolation Forest (Unsupervised)
+2025-11-11 22:58:12 | INFO     | [TIMER START] if_train
+2025-11-11 22:58:13 | INFO     | [TIMER END] if_train: 1.47s
+2025-11-11 22:58:13 | INFO     | [TIMER START] if_inference
+2025-11-11 22:58:13 | INFO     | [TIMER END] if_inference: 0.22s
+2025-11-11 22:58:13 | INFO     | Model: Isolation Forest - Strategy: none
+2025-11-11 22:58:13 | INFO     |   Accuracy: 0.9584 
+2025-11-11 22:58:13 | INFO     |   Precision: 0.0341 
+2025-11-11 22:58:13 | INFO     |   Recall: 0.8469 
+2025-11-11 22:58:13 | INFO     |   F1-Score: 0.0655 
+2025-11-11 22:58:13 | INFO     |   ROC-AUC: 0.9550 
+2025-11-11 22:58:13 | INFO     |   Training Time: 1.47s
+2025-11-11 22:58:13 | INFO     |   Inference Time: 0.2203s
+2025-11-11 22:58:13 | INFO     | 
+>>> Autoencoder (Unsupervised)
+2025-11-11 22:58:13 | INFO     | Using 227,451 normal samples for training
+2025-11-11 22:58:13 | INFO     | [TIMER START] ae_train
+2025-11-11 22:58:13 | INFO     | Training Autoencoder model...
+2025-11-11 22:58:13 | INFO     | Using 2 GPUs for training
+2025-11-11 22:59:01 | INFO     | Epoch 10/50 - Train Loss: 0.5205
+2025-11-11 22:59:47 | INFO     | Epoch 20/50 - Train Loss: 0.4927
+2025-11-11 23:00:32 | INFO     | Epoch 30/50 - Train Loss: 0.4834
+2025-11-11 23:01:19 | INFO     | Epoch 40/50 - Train Loss: 0.4699
+2025-11-11 23:02:07 | INFO     | Epoch 50/50 - Train Loss: 0.4631
+2025-11-11 23:02:07 | INFO     | [TIMER END] ae_train: 233.26s
+2025-11-11 23:02:07 | INFO     | [TIMER START] ae_inference
+2025-11-11 23:02:07 | INFO     | [TIMER END] ae_inference: 0.01s
+2025-11-11 23:02:07 | INFO     | Model: Autoencoder - Strategy: none
+2025-11-11 23:02:07 | INFO     |   Accuracy: 0.9796 
+2025-11-11 23:02:07 | INFO     |   Precision: 0.0674 
+2025-11-11 23:02:07 | INFO     |   Recall: 0.8469 
+2025-11-11 23:02:07 | INFO     |   F1-Score: 0.1248 
+2025-11-11 23:02:07 | INFO     |   ROC-AUC: 0.9567 
+2025-11-11 23:02:07 | INFO     |   Training Time: 233.26s
+2025-11-11 23:02:07 | INFO     |   Inference Time: 0.0060s
+2025-11-11 23:02:07 | INFO     | 
+================================================================================
+2025-11-11 23:02:07 | INFO     | Completed All Models for creditCardPCA
+2025-11-11 23:02:07 | INFO     | ================================================================================
+2025-11-11 23:02:07 | INFO     | Dataset creditCardPCA completed and memory cleared
+2025-11-11 23:02:07 | INFO     | Memory Usage: RAM=4.42GB
+2025-11-11 23:02:07 | INFO     |   GPU 0: Allocated=0.03GB, Reserved=0.04GB
+2025-11-11 23:02:07 | INFO     |   GPU 1: Allocated=0.02GB, Reserved=0.02GB
+2025-11-11 23:02:07 | INFO     | 
+================================================================================
+2025-11-11 23:02:07 | INFO     | COMPILING RESULTS
+2025-11-11 23:02:07 | INFO     | ================================================================================
+2025-11-11 23:02:07 | INFO     | Results saved to: /usr1/home/s124mdg53_07/wang/FYP/results/experiment_results.csv
+2025-11-11 23:02:07 | INFO     | 
+================================================================================
+2025-11-11 23:02:07 | INFO     | Generating All Visualizations
+2025-11-11 23:02:07 | INFO     | ================================================================================
+2025-11-11 23:02:07 | INFO     | Plotting model comparison for f1_score
+2025-11-11 23:02:08 | INFO     | Saved: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations/comparisons/model_comparison_f1_score.png
+2025-11-11 23:02:08 | INFO     | Plotting model comparison for roc_auc
+2025-11-11 23:02:08 | INFO     | Saved: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations/comparisons/model_comparison_roc_auc.png
+2025-11-11 23:02:08 | INFO     | Plotting imbalance strategy comparison
+2025-11-11 23:02:09 | INFO     | Saved: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations/comparisons/imbalance_comparison.png
+2025-11-11 23:02:09 | INFO     | Plotting time analysis
+2025-11-11 23:02:09 | INFO     | Saved: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations/comparisons/time_analysis.png
+2025-11-11 23:02:09 | INFO     | Plotting all metrics heatmap
+2025-11-11 23:02:10 | INFO     | Saved: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations/comparisons/all_metrics_heatmap.png
+2025-11-11 23:02:10 | INFO     | 
+================================================================================
+2025-11-11 23:02:10 | INFO     | Generating Summary Report
+2025-11-11 23:02:10 | INFO     | ================================================================================
+2025-11-11 23:02:10 | INFO     | Summary report saved: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations/comparisons/summary_report.txt
+2025-11-11 23:02:10 | INFO     | ====================================================================================================
+2025-11-11 23:02:10 | INFO     | EXPERIMENT SUMMARY REPORT
+2025-11-11 23:02:10 | INFO     | ====================================================================================================
+2025-11-11 23:02:10 | INFO     | 
+2025-11-11 23:02:10 | INFO     | BEST MODELS BY METRIC
+2025-11-11 23:02:10 | INFO     | ----------------------------------------------------------------------------------------------------
+2025-11-11 23:02:10 | INFO     | Best ACCURACY    : Logistic Regression  (Dataset: counterfeit_products, Value: 1.0000)
+2025-11-11 23:02:10 | INFO     | Best PRECISION   : Logistic Regression  (Dataset: counterfeit_products, Value: 1.0000)
+2025-11-11 23:02:10 | INFO     | Best RECALL      : Logistic Regression  (Dataset: counterfeit_products, Value: 1.0000)
+2025-11-11 23:02:10 | INFO     | Best F1_SCORE    : Logistic Regression  (Dataset: counterfeit_products, Value: 1.0000)
+2025-11-11 23:02:10 | INFO     | Best ROC_AUC     : Logistic Regression  (Dataset: counterfeit_products, Value: 1.0000)
+2025-11-11 23:02:10 | INFO     | 
+2025-11-11 23:02:10 | INFO     | PER-DATASET SUMMARY
+2025-11-11 23:02:10 | INFO     | ----------------------------------------------------------------------------------------------------
+2025-11-11 23:02:10 | INFO     | 
+Dataset: counterfeit_products
+2025-11-11 23:02:10 | INFO     |   Best Model: Logistic Regression
+2025-11-11 23:02:10 | INFO     |   F1-Score: 1.0000
+2025-11-11 23:02:10 | INFO     |   ROC-AUC: 1.0000
+2025-11-11 23:02:10 | INFO     |   Training Time: 1.51s
+2025-11-11 23:02:10 | INFO     | 
+Dataset: creditCardPCA
+2025-11-11 23:02:10 | INFO     |   Best Model: XGBoost
+2025-11-11 23:02:10 | INFO     |   F1-Score: 0.8557
+2025-11-11 23:02:10 | INFO     |   ROC-AUC: 0.9737
+2025-11-11 23:02:10 | INFO     |   Training Time: 1.57s
+2025-11-11 23:02:10 | INFO     | 
+2025-11-11 23:02:10 | INFO     | OVERALL MODEL RANKINGS (by F1-Score)
+2025-11-11 23:02:10 | INFO     | ----------------------------------------------------------------------------------------------------
+2025-11-11 23:02:10 | INFO     |    1. XGBoost              - F1: 0.8690
+2025-11-11 23:02:10 | INFO     |    2. Random Forest        - F1: 0.8537
+2025-11-11 23:02:10 | INFO     |    3. KNN                  - F1: 0.8524
+2025-11-11 23:02:10 | INFO     |    4. MLP                  - F1: 0.7907
+2025-11-11 23:02:10 | INFO     |    5. LightGBM             - F1: 0.7203
+2025-11-11 23:02:10 | INFO     |    6. PCA+SVM              - F1: 0.6646
+2025-11-11 23:02:10 | INFO     |    7. Autoencoder          - F1: 0.5540
+2025-11-11 23:02:10 | INFO     |    8. Logistic Regression  - F1: 0.5414
+2025-11-11 23:02:10 | INFO     |    9. Isolation Forest     - F1: 0.2463
+2025-11-11 23:02:10 | INFO     | 
+2025-11-11 23:02:10 | INFO     | All visualizations generated successfully!
+2025-11-11 23:02:10 | INFO     | 
+================================================================================
+2025-11-11 23:02:10 | INFO     | EXPERIMENT COMPLETE
+2025-11-11 23:02:10 | INFO     | ================================================================================
+2025-11-11 23:02:10 | INFO     | Total datasets processed: 2
+2025-11-11 23:02:10 | INFO     | Total experiments run: 46
+2025-11-11 23:02:10 | INFO     | Results saved to: /usr1/home/s124mdg53_07/wang/FYP/results/experiment_results.csv
+2025-11-11 23:02:10 | INFO     | Visualizations saved to: /usr1/home/s124mdg53_07/wang/FYP/results/visualizations
+2025-11-11 23:02:10 | INFO     | All outputs are in English as requested
+2025-11-11 23:02:10 | INFO     | Memory Usage: RAM=4.46GB
+2025-11-11 23:02:10 | INFO     |   GPU 0: Allocated=0.03GB, Reserved=0.04GB
+2025-11-11 23:02:10 | INFO     |   GPU 1: Allocated=0.02GB, Reserved=0.02GB
+2025-11-11 23:02:10 | INFO     | Experiment finished successfully!

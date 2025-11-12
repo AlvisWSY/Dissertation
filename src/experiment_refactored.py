@@ -702,19 +702,51 @@ class DatasetLoader:
             X_train = X_train.drop(columns=drop_cols, errors='ignore')
             X_test = X_test.drop(columns=drop_cols, errors='ignore')
         
-        # Encode categorical features
+        # Encode categorical features (OPTIMIZED for large datasets)
         if encode_categorical and feature_types['categorical']:
             logger.info(f"Encoding {len(feature_types['categorical'])} categorical features")
-            for col in feature_types['categorical']:
-                if col in X_train.columns:
-                    le = LabelEncoder()
-                    le.fit(X_train[col].astype(str))
-                    X_train[col] = le.transform(X_train[col].astype(str))
-                    # Handle unseen categories in test set
-                    X_test[col] = X_test[col].astype(str).apply(
-                        lambda x: le.transform([x])[0] if x in le.classes_ else -1
-                    )
-                    self.label_encoders[col] = le
+            
+            # Use optimized encoding for large datasets (> 500K samples)
+            if len(X_train) > 500000:
+                logger.info("⚡ Using optimized batch encoding for large dataset")
+                
+                for col in feature_types['categorical']:
+                    if col in X_train.columns:
+                        # Use pandas Categorical for memory efficiency
+                        logger.info(f"  Encoding: {col}")
+                        
+                        # Convert to categorical (much faster than LabelEncoder for large data)
+                        X_train[col] = X_train[col].astype('category')
+                        
+                        # Get the categories from training set
+                        train_categories = X_train[col].cat.categories
+                        
+                        # Apply same categories to test set
+                        X_test[col] = pd.Categorical(
+                            X_test[col], 
+                            categories=train_categories
+                        )
+                        
+                        # Convert to codes (numerical)
+                        X_train[col] = X_train[col].cat.codes
+                        X_test[col] = X_test[col].cat.codes  # Unseen categories become -1
+                        
+                        # Store for reference (though we don't use LabelEncoder here)
+                        self.label_encoders[col] = train_categories
+                        
+                        clear_memory()
+            else:
+                # Original encoding for smaller datasets
+                for col in feature_types['categorical']:
+                    if col in X_train.columns:
+                        le = LabelEncoder()
+                        le.fit(X_train[col].astype(str))
+                        X_train[col] = le.transform(X_train[col].astype(str))
+                        # Handle unseen categories in test set
+                        X_test[col] = X_test[col].astype(str).apply(
+                            lambda x: le.transform([x])[0] if x in le.classes_ else -1
+                        )
+                        self.label_encoders[col] = le
         
         # Handle sparse features
         X_train, X_test = self.handle_sparse_features(X_train, X_test)

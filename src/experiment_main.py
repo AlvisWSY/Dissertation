@@ -337,7 +337,7 @@ class ResultsVisualizer:
 # ============================================================================
 
 def main():
-    """Main execution function"""
+    """Main execution function with resume capability"""
     logger.section("FRAUD DETECTION EXPERIMENT - MAIN EXECUTION", level=1)
     logger.info("Starting comprehensive fraud detection model comparison experiment")
     log_memory_usage()
@@ -348,19 +348,71 @@ def main():
         use_sampling_for_slow_models=True
     )
     
-    # Select datasets to run (can be configured)
-    #datasets_to_run = list(DATASET_CONFIGS.keys())
-    datasets_to_run = ['counterfeit_products', 'creditCardPCA']  # For quick testing
+    # Select datasets to run
+    all_datasets = list(DATASET_CONFIGS.keys())
     
-    logger.info(f"Datasets to process: {datasets_to_run}")
-    logger.info(f"Total datasets: {len(datasets_to_run)}")
+    # 🔥 Configuration: Which datasets to run
+    # Set start_from_index to resume from a specific dataset (0-indexed)
+    # Set to 0 to run all datasets, or 4 to start from 5th dataset, etc.
+    start_from_index = 0 # 0=all, 4=from creditCardTransaction
+    datasets_to_run = all_datasets[start_from_index:] if start_from_index > 0 else all_datasets
+    
+    # Initialize components
+    runner = ExperimentRunner()
+    
+    # 📊 LOAD PREVIOUS RESULTS AND SKIP COMPLETED DATASETS
+    results_csv_path = RESULTS_DIR / 'experiment_results.csv'
+    previous_results_df = None
+    completed_datasets = []
+    
+    if results_csv_path.exists():
+        try:
+            previous_results_df = pd.read_csv(results_csv_path)
+            completed_datasets = previous_results_df['dataset'].unique().tolist()
+            logger.info(f"✓ Found previous results: {len(previous_results_df)} experiments")
+            logger.info(f"✓ Previously completed datasets: {completed_datasets}")
+            
+            # Load ALL previous results into evaluator
+            for _, row in previous_results_df.iterrows():
+                runner.evaluator.results.append(row.to_dict())
+            logger.info(f"✓ Loaded {len(previous_results_df)} previous results into evaluator")
+            
+            # Filter out already completed datasets
+            original_count = len(datasets_to_run)
+            datasets_to_run = [d for d in datasets_to_run if d not in completed_datasets]
+            
+            if len(datasets_to_run) == 0:
+                logger.info("✅ All datasets already completed! Nothing to run.")
+            elif len(datasets_to_run) < original_count:
+                logger.info(f"⏭️  Skipping completed: {completed_datasets}")
+                logger.info(f"⏳ Will run remaining {len(datasets_to_run)}/{original_count}: {datasets_to_run}")
+            else:
+                logger.info(f"🚀 Running all {len(datasets_to_run)} datasets")
+        
+        except Exception as e:
+            logger.warning(f"Could not load previous results: {e}")
+            logger.info("Starting fresh experiment")
+            previous_results_df = None
+    else:
+        logger.info("No previous results found - starting fresh")
+        logger.info(f"🚀 Running all {len(datasets_to_run)} datasets")
+    
+    logger.info("")
+    
+    # Early exit if nothing to run
+    if len(datasets_to_run) == 0:
+        logger.info("=" * 80)
+        logger.info("EXPERIMENT ALREADY COMPLETE")
+        logger.info("=" * 80)
+        return
+
     
     # Process each dataset
     all_results = {}
-    for idx, dataset_name in enumerate(datasets_to_run, 1):
+    for idx, dataset_name in enumerate(datasets_to_run, start_from_index + 1):
         try:
-            logger.section(f"DATASET {idx}/{len(datasets_to_run)}: {dataset_name}", level=1)
-            logger.progress(idx, len(datasets_to_run), "Dataset Processing")
+            logger.section(f"DATASET {idx}/{len(all_datasets)}: {dataset_name}", level=1)
+            logger.progress(idx - start_from_index, len(datasets_to_run), "Dataset Processing")
             
             # Get dataset configuration
             config = DATASET_CONFIGS[dataset_name]
@@ -464,6 +516,13 @@ def main():
             
             all_results[dataset_name] = dataset_results
             
+            # 💾 INCREMENTAL SAVE: Save results after EACH dataset completes
+            # This ensures we don't lose progress if the experiment crashes
+            logger.info(f"💾 Saving incremental results after completing {dataset_name}...")
+            current_results_df = runner.evaluator.get_results_df()
+            current_results_df.to_csv(results_csv_path, index=False)
+            logger.info(f"   Saved {len(current_results_df)} total results to CSV")
+            
             # Clear memory immediately
             if use_feature_selection:
                 del train_df, test_df, X_train, X_test, y_train, y_test
@@ -485,22 +544,44 @@ def main():
     logger.section("COMPILING RESULTS", level=1)
     results_df = runner.evaluator.get_results_df()
     
-    # Save results to CSV
+    if results_df.empty:
+        logger.error("No results to compile! All datasets may have failed.")
+        return None
+    
+    # Final save to CSV (redundant but ensures latest data is saved)
     results_csv_path = RESULTS_DIR / 'experiment_results.csv'
     results_df.to_csv(results_csv_path, index=False)
-    logger.info(f"Results saved to: {results_csv_path}")
+    logger.info(f"Final results saved to: {results_csv_path}")
+    logger.info(f"Total experiments: {len(results_df)}")
     
-    # Generate visualizations
+    # Show dataset coverage
+    datasets_in_results = results_df['dataset'].unique()
+    logger.info(f"Datasets with results: {list(datasets_in_results)}")
+    
+    # Check if we have results from all intended datasets
+    missing_datasets = set(all_datasets) - set(datasets_in_results)
+    if missing_datasets:
+        logger.warning(f"⚠️  Missing results for datasets: {list(missing_datasets)}")
+        logger.info(f"   (This is normal if you're running a subset of datasets)")
+    
+    # Generate visualizations (will work even with partial data)
+    logger.info(f"Generating visualizations for {len(datasets_in_results)} datasets...")
     visualizer = ResultsVisualizer(results_df)
     visualizer.generate_all_visualizations()
     
     # Final summary
     logger.section("EXPERIMENT COMPLETE", level=1)
-    logger.info(f"Total datasets processed: {len(all_results)}")
-    logger.info(f"Total experiments run: {len(results_df)}")
+    logger.info(f"Successfully processed datasets: {len(all_results)}")
+    logger.info(f"Total experiments in database: {len(results_df)}")
+    logger.info(f"Unique datasets in results: {len(datasets_in_results)}")
     logger.info(f"Results saved to: {results_csv_path}")
     logger.info(f"Visualizations saved to: {VIZ_DIR}")
-    logger.info("All outputs are in English as requested")
+    
+    # Provide guidance for next steps
+    if missing_datasets and start_from_index == 0:
+        logger.warning(f"\n⚠️  Some datasets are missing from results.")
+        logger.info(f"   To complete the experiment, run again with start_from_index set appropriately.")
+    
     log_memory_usage()
     
     return results_df
